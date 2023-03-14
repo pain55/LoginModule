@@ -1,0 +1,85 @@
+<form (ngSubmit)="registerForm()">
+
+  <mat-hint>(*) fields are required</mat-hint>
+
+  <div class="row mt-10">
+    <div class="col col-md-6 full-width">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name:</mat-label>
+        <input
+          matInput
+          required
+          type="text"
+          placeholder="Enter your first name"
+          name="firstName"
+          [(ngModel)]="user.firstName"
+        />
+      </mat-form-field>
+    </div>
+    <div class="col col-md-6 full-width">
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name:</mat-label>
+        <input
+          matInput
+          required
+          type="text"
+          placeholder="Enter your last name"
+          name="lastName"
+          [(ngModel)]="user.lastName"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Username:</mat-label>
+    <input
+      required
+      matInput
+      type="text"
+      placeholder="Enter your username"
+      [(ngModel)]="user.username"
+      name="username"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Password</mat-label>
+    <input
+      required
+      matInput
+      placeholder="Enter your password"
+      [type]="hide ? 'password' : 'text'"
+      name="password"
+      [(ngModel)]="user.password"
+    />
+    <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+      <mat-icon> {{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input
+      required
+      matInput
+      type="email"
+      placeholder="Ex. pat@example.com"
+      name="email"
+      [(ngModel)]="user.email"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Phone Number:</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="+91 xxxxx xxxxx"
+      name="phoneNumber"
+      [(ngModel)]="user.phoneNumber"
+    />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

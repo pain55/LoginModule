@@ -1,0 +1,20 @@
+
+<h1>Login</h1>
+
+<form (ngSubmit)="loginForm()">
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Username:</mat-label>
+    <input matInput type="email" placeholder="Ex. pat@example.com" name="email" [(ngModel)]="loginInfo.username">
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Password:</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="loginInfo.password">
+    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+  <button type="submit" class="full-width" mat-raised-button color="primary">Log In</button>
+</form>
+
+Not an User?<button mat-button routerLink="/register">Register Here</button>
